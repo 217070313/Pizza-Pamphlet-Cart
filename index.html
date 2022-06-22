@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Pizza</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="//unpkg.com/alpinejs" defer> </script>
+
+</head>
+<body>
+ <div class="container" x-data="{
+    showCart: false, 
+    smallpizzaTotal : 0,
+    smallpizzaQty : 0, 
+    mediuampizzaTotal : 0,
+    mediumpizzaQty : 0, 
+    largepizzaTotal : 0, 
+    largepizzaQty : 0,
+    BuyNum : false,
+    paymentAmount : 0,
+    paymentMessage : '',
+    Buysmall(){
+        this.smallpizzaTotal += 58.99;
+        this.smallpizzaQty +=1;
+    },
+    Cancelsmall(){
+        if(this.smallpizzaQty>0){
+        this.smallpizzaTotal -= 58.99;
+        this.smallpizzaQty -=1;
+        }
+    },
+    Buymedium(){
+        this.mediuampizzaTotal += 98.99;
+        this.mediumpizzaQty +=1;
+    },
+    Cancelsmedium(){
+        if(this.mediumpizzaQty>0){
+        this.mediuampizzaTotal -= 98.99;
+        this.mediumpizzaQty -=1;
+        }
+    },
+    Buylarge(){
+        this.largepizzaTotal += 156.99;
+        this.largepizzaQty +=1;
+    },
+    Cancellarge(){
+        if(this.largepizzaQty>0){
+        this.largepizzaTotal -= 156.99;
+        this.largepizzaQty -=1;
+        }
+    },
+    cartTotal(){
+        return this.smallpizzaTotal + this.mediuampizzaTotal + this.largepizzaTotal
+    },
+    iteamQty(){
+        return this.smallpizzaQty + this.mediumpizzaQty + this.largepizzaQty
+    },
+    makePayment(){
+        if(this.paymentAmount == 0){
+            this.paymentMessage = 'No amount entered!'
+        }
+        if(this.paymentAmount >= this.cartTotal()){
+            this.paymentMessage = 'Payment successeful';
+              setTimeout(()=>{
+                this.clearMessage()
+                this.BuyNum = false
+              }, 2000);
+             }
+        else{
+            this.paymentMessage = 'Error'
+        }
+    },
+    clearMessage(){
+       this.smallpizzaTotal = 0;
+       this.smallpizzaQty = 0;
+       this.mediuampizzaTotal = 0;
+       this.mediumpizzaQty = 0; 
+       this.largepizzaTotal = 0; 
+       this.largepizzaQty = 0;
+       this.paymentAmount = 0;
+     
+    }
+    }">
+   <div class="heading"> 
+    <div class="f3">
+        <h1 >Perfect Pizza</h1>
+    </div>
+    <div class="f1">
+        <button x-on:click="showCart=true">
+            <img src="shopping-cart.png" width="30" alt="">Open cart</button>
+        <strong>R<span x-text="cartTotal().toFixed(2)"></span></strong>
+        <strong x-show="iteamQty() > 0">Qty: <span x-text="iteamQty()"></span></strong>
+    </div>
+    </div>
+    <div class="cart-box">
+        <div class="cart" x-show="showCart">
+            <button x-on:click="showCart=false">
+                <img src="shopping-cart.png" width="30" alt="">Close cart</button>
+            <div class="">
+                <h2>Cart
+                    <img src="shopping-cart.png" width="30" alt="">
+                </h2>
+            </div>
+            
+            <table>
+                <tr>
+                    <td> Small pizza</td>
+                    <td>
+                        <span x-text="smallpizzaQty"></span>
+                        <button x-on:click="Buysmall()">+</button>
+                        <button x-on:click="Cancelsmall()" x-show="smallpizzaQty >0">-</button>
+                    </td>
+                    <td>
+                        R<span x-text="smallpizzaTotal.toFixed(2)"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Medium pizza</td>
+                    <td>
+                        <span x-text="mediumpizzaQty"></span>
+                        <button x-on:click="Buymedium()">+</button>
+                        <button x-on:click="Cancelmedium()" x-show="mediumpizzaQty >0">-</button>
+                    </td>
+                    <td>
+                        R<span x-text="mediuampizzaTotal.toFixed(2)"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Large pizza</td>
+                    <td>
+                        <span x-text="largepizzaQty"></span>
+                        <button x-on:click="Buylarge()">+</button>
+                        <button x-on:click="Cancellarge()" x-show="largepizzaQty >0">-</button>
+                    </td>
+                    <td>
+                        R<span x-text="largepizzaTotal.toFixed(2)"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Total</td>
+                    <td>
+                        R<span x-text="cartTotal().toFixed(2)"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan ="2" x-show="BuyNum">
+                        <div class="message" x-text="paymentMessage"></div>
+                        <div>
+                            <label for="">Payment amount</label>
+                            <input class="input" type="number" placeholder="Payment amount" x-model="paymentAmount">
+                        </div>
+                        <div>
+                            <button class="btn" x-on:click="makePayment()">
+                                <img src="./images/shopping-cart.png" width="20" alt="">
+                                Pay</button>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn" x-on:click="BuyNum=true" x-show="!BuyNum">
+                            <img src="./images/shopping-cart.png" width="20" alt="">
+                            Buy now</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="pizzas">
+
+        <div class="small">
+
+            <h2>Small Pizza</h2>
+            
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXrODHn7Z7myIAeZR848PO63i3sR_Aya_iLA&usqp=CAU" width="80">
+            <h3>R59.99</h3>
+            <button class="buy btn" x-on:click="smallpizzaTotal += 59.99; smallpizzaQty +=1" >
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXrODHn7Z7myIAeZR848PO63i3sR_Aya_iLA&usqp=CAU" width="20" >
+            Buy</button>
+            <div>
+                small pizza with 3 toppings 1 meat topping. 3 or less other toppings.
+            </div>
+        </div>
+        <div class="medium">
+            <h2>Medium Pizza</h2>
+            
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXrODHn7Z7myIAeZR848PO63i3sR_Aya_iLA&usqp=CAU" width="150">
+            <h3>R98.99</h3>
+            <button class="buy btn" x-on:click="mediuampizzaTotal += 98.99; mediumpizzaQty +=1" >
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXrODHn7Z7myIAeZR848PO63i3sR_Aya_iLA&usqp=CAU" width="20" >
+            Buy</button>
+            <div>
+               medium margeritha pizza with 3 toppings max. 2 or less meat topping. 3 or less other toppings
+            </div>
+        </div>
+        <div class="large">
+            <h2>Large Pizza</h2>
+            
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXrODHn7Z7myIAeZR848PO63i3sR_Aya_iLA&usqp=CAU" width="250">
+            <h3>R156.99</h3>
+            <button class="buy btn" x-on:click="largepizzaTotal += 156.99; largepizzaQty +=1" >
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXrODHn7Z7myIAeZR848PO63i3sR_Aya_iLA&usqp=CAU" width="20" >
+            Buy</button>
+            <div>
+             large margeritha pizza with 3 toppings max. 3 meat toppings max. 3 or less other toppings.
+            </div>
+        </div>
+        
+    </div>
+    <div class="Contact_Us">
+        
+       <div class="contacts"> 
+        <h2>Contact Details</h2>
+           <div>Contact No. 011-788-0486</div>
+           <div> Email: pizzaperfect@gmail.co.za</div>
+       </div>
+       <div class="address"> 
+           <div> </div>
+           <div>Pizza Plaza</div>
+           <div>480 Brea</div>
+           <div>Johannesburg</div>
+    </div>
+    </div>
+ </div> 
+</body>
+</html>

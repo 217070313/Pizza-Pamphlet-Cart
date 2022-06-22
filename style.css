@@ -1,0 +1,170 @@
+           body {
+                background-image:url(https://www.trapperspizza.com/wp-content/uploads/2019/05/Pizza-Background-1024x683.jpg);
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+            }
+            
+            .pizzas{
+                
+                border-radius: 1em;
+                background-image:url(https://thumbs.dreamstime.com/b/colorful-pizza-background-cartoon-style-design-can-be-used-as-wallpaper-restaurant-226434254.jpg);
+                padding:1em;  
+                margin: 1em;
+            }
+            .medium {
+                border-radius: 1em;
+                background-color: white;
+                padding:1em;  
+                margin: 1em;
+                
+            }
+            .large {
+                border-radius: 1em;
+                background-color: white;
+                padding:1em;  
+                margin: 1em;
+            }
+            .small {
+                border-radius: 1em;
+                background-color:white;
+                padding:1em;
+                margin: 1em;
+                
+            }
+            .Contact_Us{
+               padding: 1em;
+               background-color: "#00FF00";
+               margin: 1em       ;
+                
+            }
+            .address{
+                padding-top:3.5em;
+                justify-content: flex-end;
+            }
+            
+            .heading{
+                background-color: "#00FF00";
+                padding: 3em;
+            }
+            .img{
+    
+                margin:auto;
+            }
+            .cart-box {
+                padding: 3em;
+                display: flex;
+                justify-content: flex-end;
+            
+            }
+            .heading-name{
+                padding: 1em;
+                margin-bottom: 5em;
+            }
+            
+            .hidden {
+                display: none;
+            }
+            
+            .cart {
+                background-color: "#00FF00";
+                padding-top: 1em;
+                padding: 1em;
+                width: 100%;
+                margin-top: -10em;
+                border-radius: 0.5em;
+            }
+            
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            td {
+                text-align: center;
+                vertical-align: bottom;
+                /* height: 50px; */
+            }
+            
+            th,
+            td {
+                padding: 15px;
+                text-align: left;
+                border: 1px solid #ccc;
+            
+            }
+            
+            .f1 {
+                flex: 1
+            }
+            
+            .f3 {
+                flex: 3;
+                
+            }
+            
+            .message {
+                padding: 1em;
+                /* color: grey; */
+                font-weight: bold;
+                background-color: gold;
+            }
+            
+            .input {
+                padding: 1em;
+            }
+            
+            .btn {
+                padding: 1em 0em 1em 0em;
+                width: 5em;
+                background-color: gold;
+                color: grey;
+                font-weight: bold;
+                border: 0;
+                cursor: pointer;
+                border-radius: 0.25em;
+            }
+            
+            .buy {
+                width: 7em;
+                margin-bottom: 1em;
+                
+                /* padding: 1em 0em 1em 0em;
+                border-radius: 0.25em;
+                background-color: gold;
+                color: grey;
+                font-weight: bold;
+                border: 0;
+                cursor: pointer; */
+            }
+            
+    
+            
+            @media(min-width:768px){
+                .body {
+                background-image:url(https://www.trapperspizza.com/wp-content/uploads/2019/05/Pizza-Background-1024x683.jpg);
+                } 
+                .pizzas{
+                display:flex;
+                border-radius: 1em;
+                background-image:url(https://thumbs.dreamstime.com/b/colorful-pizza-background-cartoon-style-design-can-be-used-as-wallpaper-restaurant-226434254.jpg);
+                padding:1em;  
+                margin: 1em;
+                }
+                .Contact_Us{
+                background-color: "#00FF00";
+                margin: 1em       ;
+                display: flex;
+            }
+        
+            .cart {
+                /* background-color: dodgerblue; */
+                /* padding: 1em; */
+                width: 50%;
+                padding-top: 5em;
+                /* border-radius-bottom: 1em; */
+            }
+            .heading{
+                background-color: "#00FF00";
+                display: flex;
+                padding: 3em;
+            }
+            }
