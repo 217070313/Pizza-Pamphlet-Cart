@@ -1,6 +1,7 @@
            body {
                 background-image:url(https://www.trapperspizza.com/wp-content/uploads/2019/05/Pizza-Background-1024x683.jpg);
-                font-family:Verdana, Geneva, Tahoma, sans-serif;
+                font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                font-size: larger;
             }
             
             .pizzas{
@@ -50,14 +51,19 @@
                 margin:auto;
             }
             .cart-box {
-                padding: 3em;
+                padding: 1em;
                 display: flex;
                 justify-content: flex-end;
             
             }
             .heading-name{
                 padding: 1em;
-                margin-bottom: 5em;
+                margin-bottom: 10em;
+                
+            }
+            h1{
+                color:gold
+
             }
             
             .hidden {
@@ -69,13 +75,14 @@
                 padding-top: 1em;
                 padding: 1em;
                 width: 100%;
-                margin-top: -10em;
+                margin-top: -5em;
                 border-radius: 0.5em;
             }
             
             table {
                 border-collapse: collapse;
                 width: 100%;
+
             }
             
             td {
@@ -98,14 +105,16 @@
             
             .f3 {
                 flex: 3;
-                
+                text-align: center;
+                font-family: 'Courier New', Courier, monospace;
             }
             
             .message {
                 padding: 1em;
+                margin-bottom: 1em;
                 /* color: grey; */
                 font-weight: bold;
-                background-color: gold;
+                background-color:aliceblue;
             }
             
             .input {
@@ -115,8 +124,8 @@
             .btn {
                 padding: 1em 0em 1em 0em;
                 width: 5em;
-                background-color: gold;
-                color: grey;
+                background-color: red;
+                color: greenyellow;
                 font-weight: bold;
                 border: 0;
                 cursor: pointer;
@@ -166,5 +175,8 @@
                 background-color: "#00FF00";
                 display: flex;
                 padding: 3em;
+            }
+            .f1 {
+                flex: 1
             }
             }
